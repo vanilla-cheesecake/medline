@@ -14,6 +14,15 @@
         </div>
     </div><!-- /.container-fluid -->
 </section>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <section class="content">
     <div class="container-fluid">
@@ -23,109 +32,86 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="container-fluid">
-                            {{-- CREATE FOR LIKE THIS  --}}
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {{-- col 1 --}}
-                                    <div class="row">
-                                        {{-- PROFILE PHOTO HERE --}}
-                                        {{-- input 1 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input1"></label>
-                                                {{-- <input type="text" class="form-control" id="input1" name="input1"> --}}
+                            <form method="POST" action="{{ route('crew.store')}}">
+                               @csrf
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group text-center">
+                                            <div class="circle-upload">
+                                                <label for="profile_photo" class="upload-btn-label">
+                                                    <i class="fas fa-camera"></i> Upload Photo
+                                                </label>
+                                                <input type="file" name="profile_photo" id="profile_photo"
+                                                    accept="image/*" style="display: none;">
                                             </div>
                                         </div>
-                                        {{-- input 2 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input2"></label>
-                                                {{-- <input type="text" class="form-control" id="input2" name="input2"> --}}
-                                            </div>
-                                        </div>
-                                        {{-- input 1 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input1"></label>
-                                                {{-- <input type="text" class="form-control" id="input1" name="input1"> --}}
-                                            </div>
-                                        </div>
-                                        {{-- input 2 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="input2"></label>
-                                                {{-- <input type="text" class="form-control" id="input2" name="input2"> --}}
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {{-- PERSONAL INFORMATION --}}
+                                        <div class="row">
 
-                                    {{-- PERSONAL INFORMATION --}}
-                                    <div class="row">
-                                        {{-- input 1 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="firstname">First Name:</label>
-                                                <input type="text" class="form-control" id="firstname" name="firstname"
-                                                    autocomplete="off">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="firstname">First Name:</label>
+                                                    <input type="text" class="form-control" id="firstname"
+                                                        name="firstname" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastname">Last Name:</label>
+                                                    <input type="text" class="form-control" id="lastname"
+                                                        name="lastname" autocomplete="off">
+                                                </div>
                                             </div>
                                         </div>
-                                        {{-- input 2 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="lastname">Last Name:</label>
-                                                <input type="text" class="form-control" id="lastname" name="lastname"
-                                                    autocomplete="off">
+
+                                        <div class="form-group">
+                                            <label for="address">Address:</label>
+                                            <input type="text" class="form-control" id="address" name="address"
+                                                autocomplete="off">
+                                        </div>
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="birthdate">Birthdate:</label>
+                                                    <input type="date" class="form-control" id="birthdate"
+                                                        name="birthdate" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone:</label>
+                                                    <input type="number" class="form-control" id="phone" name="phone"
+                                                        autocomplete="off">
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    {{-- input 3 --}}
-                                    <div class="form-group">
-                                        <label for="address">Address:</label>
-                                        <input type="text" class="form-control" id="address" name="address"
-                                            autocomplete="off">
-                                    </div>
-                                    <div class="row">
-                                        {{-- input 1 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="birthdate">Birthdate:</label>
-                                                <input type="date" class="form-control" id="Birthdate" name="Birthdate"
-                                                    autocomplete="off">
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="mother">Mother:</label>
+                                                    <input type="text" class="form-control" id="mother" name="mother"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="spouse">Spouse:</label>
+                                                    <input type="text" class="form-control" id="spouse" name="spouse"
+                                                        autocomplete="off">
+                                                </div>
                                             </div>
                                         </div>
-                                        {{-- input 2 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="phone">Phone:</label>
-                                                <input type="number" class="form-control" id="phone" name="phone"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        {{-- input 1 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="mother">Mother:</label>
-                                                <input type="text" class="form-control" id="mother" name="mother"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-                                        {{-- input 2 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="spouse">Spouse:</label>
-                                                <input type="text" class="form-control" id="spouse" name="spouse"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        {{-- input 1 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="rank">Rank:</label>
-                    
+                                        <div class="row">
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="rank">Rank:</label>
+
                                                     <select class="form-control" id="rank" name="rank">
                                                         <option value="CPT">CPT</option>
                                                         <option value="C/O">C/O</option>
@@ -157,182 +143,180 @@
                                                         <option value="UTL">UTL</option>
                                                         <option value="TEC">TEC</option>
                                                         <option value="REP">REP</option>
-                                                     
-                                                </select>
-                                            </div>
-                                        </div>
-                                        {{-- input 2 --}}
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="spouse">SRC:</label>
-                                                <input type="text" class="form-control" id="spouse" name="spouse"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="sbook">SBOOK:</label>
-                                                <input type="text" class="form-control" id="sbook" name="sbook"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="sbookdateissued">SBOOK Date Issued:</label>
-                                                <input type="date" class="form-control" id="sbookdateissued"
-                                                    name="sbookdateissued" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- TRAVEL DOCS --}}
-                                <div class="col-md-6">
-                                    {{-- SBOOK --}}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="sbookexpirydate">SBOOK Expiry Date:</label>
-                                                <input type="date" class="form-control" id="sbookexpirydate"
-                                                    name="sbookexpirydate" autocomplete="off">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="sbookplaceissued">SBOOK Place Issued:</label>
-                                                <input type="text" class="form-control" id="sbookplaceissued"
-                                                    name="sbookplaceissued" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{-- PPORT --}}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="pport">PPORT:</label>
-                                                <input type="text" class="form-control" id="pport" name="pport"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="pportdateissued">PPORT Date Issued:</label>
-                                                <input type="date" class="form-control" id="pportdateissued"
-                                                    name="pportdateissued" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="pportexpirydate">PPORT Expiry Date:</label>
-                                                <input type="date" class="form-control" id="pportexpirydate"
-                                                    name="pportexpirydate" autocomplete="off">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="pportplaceissued">PPORT Place Issued:</label>
-                                                <input type="text" class="form-control" id="pportplaceissued"
-                                                    name="pportplaceissued" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    {{-- input 7 --}}
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="cocdateissued">COC Date Issued:</label>
-                                                <input type="date" class="form-control" id="cocdateissued"
-                                                    name="cocdateissued" autocomplete="off">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="cocexpirydate">COC Expiry Date:</label>
-                                                <input type="date" class="form-control" id="cocexpirydate"
-                                                    name="cocexpirydate" autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="usvisa">U.S Visa:</label>
-                                                <input type="date" class="form-control" id="usvisa" name="usvisa"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="yfever">YFever:</label>
-                                                <input type="date" class="form-control" id="yfever" name="yfever"
-                                                    autocomplete="off">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="status">Status</label>
-                                                <select class="form-control" name="status" id="status">
-                                                    <option value="">ON</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <br>
-                                            <div class="form-group">
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="radio_option"
-                                                        id="radio_mwe" value="MWE">
-                                                    <label class="form-check-label" for="radio_mwe">MWE</label>
+                                                    </select>
                                                 </div>
-                                                <div class="form-check">
-                                                    <input class="form-check-input" type="radio" name="radio_option"
-                                                        id="radio_active" value="ACTIVE">
-                                                    <label class="form-check-label" for="radio_active">ACTIVE</label>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="src">SRC:</label>
+                                                    <input type="text" class="form-control" id="src" name="src"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="sbook">SBOOK:</label>
+                                                    <input type="text" class="form-control" id="sbook" name="sbook"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="sbook_date_issued">SBOOK Date Issued:</label>
+                                                    <input type="date" class="form-control" id="sbook_date_issued"
+                                                        name="sbook_date_issued" autocomplete="off">
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <br>
-                                    <div class="row">
+                                    {{-- TRAVEL DOCS --}}
+                                    <div class="col-md-6">
 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="sbook_expiry_date">SBOOK Expiry Date:</label>
+                                                    <input type="date" class="form-control" id="sbook_expiry_date"
+                                                        name="sbook_expiry_date" autocomplete="off">
+                                                </div>
+                                            </div>
 
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="sbook_place_issued">SBOOK Place Issued:</label>
+                                                    <input type="date" class="form-control" id="sbook_place_issued"
+                                                        name="sbook_place_issued" autocomplete="off">
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <button class="btn btn-danger" id="submitBtn">Submit</button>
-                                                <button class="btn border-danger" id="clearBtn">Clear</button>
-                                                <button class="btn border-danger" id="deleteBtn">Delete</button>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pport">PPORT:</label>
+                                                    <input type="text" class="form-control" id="pport" name="pport"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pport_date_issued">PPORT Date Issued:</label>
+                                                    <input type="date" class="form-control" id="pport_date_issued"
+                                                        name="pport_date_issued" autocomplete="off">
+                                                </div>
                                             </div>
                                         </div>
-                                  
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pport_expiry_date">PPORT Expiry Date:</label>
+                                                    <input type="date" class="form-control" id="pport_expiry_date"
+                                                        name="pport_expiry_date" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pport_place_issued">PPORT Place Issued:</label>
+                                                    <input type="text" class="form-control" id="pport_place_issued"
+                                                        name="pport_place_issued" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="coc_date_issued">COC Date Issued:</label>
+                                                    <input type="date" class="form-control" id="coc_date_issued"
+                                                        name="coc_date_issued" autocomplete="off">
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="coc_expiry_date">COC Expiry Date:</label>
+                                                    <input type="date" class="form-control" id="coc_expiry_date"
+                                                        name="coc_expiry_date" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="us_visa">U.S Visa:</label>
+                                                    <input type="date" class="form-control" id="us_visa" name="us_visa"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="yfever">YFever:</label>
+                                                    <input type="date" class="form-control" id="yfever" name="yfever"
+                                                        autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="status">Status</label>
+                                                    <select class="form-control" name="status" id="status">
+
+                                                        <option value=ON>ON</option>
+                                                        <option value=FC>FC</option>
+                                                        <option value=STBY>STBY</option>
+                                                        <option value=PROM>PROM</option>
+                                                        <option value=TRNF>TRNF</option>
+                                                        <option value=FMLY>FMLY</option>
+                                                        <option value=SICK>SICK</option>
+                                                        <option value=EMGY>EMGY</option>
+                                                        <option value=SOLD>SOLD</option>
+                                                        <option value=ACDT>ACDT</option>
+                                                        <option value=NTBH>NTBH</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio_option"
+                                                            id="radio_mwe" value="MWE">
+                                                        <label class="form-check-label" for="radio_mwe">MWE</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="radio_option"
+                                                            id="radio_active" value="ACTIVE">
+                                                        <label class="form-check-label"
+                                                            for="radio_active">ACTIVE</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-danger" id="submitBtn">Add Crew</button>
+                                        <button type="reset" class="btn border-danger" id="clearBtn">Clear</button>
+                                        <button type="button" class="btn border-danger" id="deleteBtn">Delete</button>
                                     </div>
-
                                 </div>
-                            </div>
-                            {{-- End of form creation --}}
+                            </form>
                         </div>
-                        <!-- /.card-body -->
-
-                        <!-- /.card-footer-->
+                        {{-- End of form creation --}}
                     </div>
-                    <!-- /.card -->
+                    <!-- /.card-body -->
+
+                    <!-- /.card-footer-->
                 </div>
+                <!-- /.card -->
             </div>
         </div>
+    </div>
     </div>
 </section>
 <!-- /.content -->
@@ -348,9 +332,4 @@
     console.log('Hi!');
 </script>
 @stop
-{{--
-First Name:      Last Name:         SBOOK:      SBook Date Issued:         
-Address:                            SBK Expiry Date:   SBook Place Issued:
-Birthdate:       Phone:
-Mother:          Spouse:
-Rank:            SRC: --}}
+

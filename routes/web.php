@@ -14,6 +14,9 @@ use App\Http\Controllers\BillingsController;
 use App\Http\Controllers\AllotmentController;
 use App\Http\Controllers\AboutUsController;
 
+
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +40,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/crew-search', [CrewSearchController::class, 'index'])->name('crew-search');
     Route::get('/crew-list', [CrewListController::class, 'index'])->name('crew-list');
-    Route::get('/add-crew', [AddCrewController::class, 'index'])->name('add-crew');
+    Route::get('/add-crew', [AddCrewController::class, 'create'])->name('add-crew');
     Route::get('/ships-list', [ShipsListController::class, 'index'])->name('ships-list');
     Route::get('/calendar', [CalendarController::class, 'index'])->name('calendar');
     Route::get('/embarkation', [EmbarkationController::class, 'index'])->name('embarkation');
@@ -47,4 +50,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/allotment', [AllotmentController::class, 'index'])->name('allotment');
     Route::get('/about-us', [AboutUsController::class, 'index'])->name('about-us');
     // Repeat for other protected routes...
+
+    // Route::get('/add-crew', [AddCrewController::class, 'create'])->name('crew.create');
+    Route::POST('/add-crew', [AddCrewController::class, 'store'])->name('crew.store')->middleware('web');
+
 });
