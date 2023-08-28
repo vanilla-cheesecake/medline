@@ -15,7 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-
+    {{-- SWEET ALERT 2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <style>
 <style>
@@ -58,6 +59,8 @@
         }
         
     </style>
+
+
 
 </head>
 <body>

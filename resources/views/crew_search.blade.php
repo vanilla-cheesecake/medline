@@ -24,44 +24,48 @@
                     <div class="card-body">
                         <div class="container-fluid">
                             <!-- Search, Add Button, and Filter -->
-                            <div class="row mb-5">
-                                <div class="col-md-2">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">Search</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-1 text-left pl-3">
-                                    <button class="btn btn-success border border-dark" width="50px" ;
-                                        type="button">Add</button>
-                                </div>
-                                <div class="col-md-2 text-left pl-3">
-                                    <select class="form-control rounded-0 border border-dark">
-                                        <option value="">Filter by Account</option>
-                                        <option value="account1">Account 1</option>
-                                        <option value="account2">Account 2</option>
-                                        <!-- Add more options here -->
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- Table -->
                             <div class="row">
-                                <div class="col-md-12">
-                                    <table class="table table-bordered table-hover">
-                                        <thead class="thead-dark">
-                                            <tr>
-                                                <th class="text-center">RANK</th>
-                                                <th class="text-center">CREW NAME</th>
-                                                <th class="text-center">SIGN ON</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Add table rows with data here -->
-                                        </tbody>
-                                    </table>
-                                </div>
+                                <table id="crewTable" class="table table-hover text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>RANK</th>
+                                            <th>CREW NAME</th>
+                                            <th>ACTIONS</th>
+                                            <!-- Add other headers here -->
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($crewMembers as $crewMember)
+                                        <tr>
+                                            <td>{{ $crewMember->rank }}</td>
+                                            <td>{{ $crewMember->lastname }} {{ $crewMember->firstname }}</td>
+                                            <td class="align-middle">
+                                                <div class="d-flex justify-content-center">
+                                                    <!-- Add view, edit, and delete icons with appropriate links -->
+                                                    <a class="mr-4 text-danger" href=""><i class="fas fa-eye"></i></a>
+                                                    <a class="mr-4 text-danger" href=""><i class="fas fa-edit"></i></a>
+                                                    <a class="text-danger" href=""
+                                                        onclick="return confirm('Are you sure you want to delete this crew member?')"><i
+                                                            class="fas fa-trash"></i></a>
+                                                </div>
+                                            </td>
+
+                                            <!-- Add other columns here -->
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+
+                                <script>
+                                    $(document).ready(function() {
+                                        $('#crewTable').DataTable({
+                                            // Enable search and sorting
+                                            searching: true,
+                                            ordering: true
+                                        });
+                                    });
+                                </script>
+
                             </div>
                         </div>
                         <!-- /.card-body -->

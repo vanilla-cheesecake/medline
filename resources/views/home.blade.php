@@ -28,56 +28,62 @@
                                 <div class="col-lg-3 col-6">
                                     <div class="small-box">
                                         <div class="inner">
-                                            <i class="fas fa-fw fa-user"></i><p>New Crew</p>
-                                            <span><h1>150</h1><span>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-fw fa-user fa-1x mr-2"></i>
+                                                <h5 class="mb-0">Total Crew</h5>
+                                            </div>
+                                            <h1 class="d-block text-center" style="font-size: 6rem; margin-top: 10px; font-weight: bold;">{{ $totalCrewCount }}</h1>
                                         </div>
                                         <div class="icon">
                                             <i class="ion ion-bag"></i>
                                         </div>
-                                        <a href="#" class="small-box-footer">More info <i
-                                                class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
+                                        <a href="{{ route('crew-list')}}" class="small-box-footer bg-danger">Crew List  <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div> 
                                 </div>
                                 <div class="col-lg-3 col-6">
                                     <div class="small-box">
                                         <div class="inner">
-                                            <i class="fas fa-fw fa-user"></i><p>New Crew</p>
-                                            <span><h1>150</h1><span>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-fw fa-user fa-1x mr-2"></i>
+                                                <h5 class="mb-0">Visa Expiration</h5>
+                                            </div>
+                                            <h1 class="d-block text-center" style="font-size: 6rem; margin-top: 10px; font-weight: bold;">0</h1>
                                         </div>
                                         <div class="icon">
                                             <i class="ion ion-bag"></i>
                                         </div>
-                                        <a href="#" class="small-box-footer">More info <i
-                                                class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-6">
+                                        <a href="{{ route('crew-list')}}" class="small-box-footer bg-danger">US Visa  <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div> 
+                                </div><div class="col-lg-3 col-6">
                                     <div class="small-box">
                                         <div class="inner">
-                                            <i class="fas fa-fw fa-user"></i><p>New Crew</p>
-                                            <span><h1>150</h1><span>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-fw fa-user fa-1x mr-2"></i>
+                                                <h5 class="mb-0">Vessels</h5>
+                                            </div>
+                                            <h1 class="d-block text-center" style="font-size: 6rem; margin-top: 10px; font-weight: bold;">200</h1>
                                         </div>
                                         <div class="icon">
                                             <i class="ion ion-bag"></i>
                                         </div>
-                                        <a href="#" class="small-box-footer">More info <i
-                                                class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-6">
+                                        <a href="{{ route('crew-list')}}" class="small-box-footer bg-danger">Ships List  <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div> 
+                                </div><div class="col-lg-3 col-6">
                                     <div class="small-box">
                                         <div class="inner">
-                                            <i class="fas fa-fw fa-user"></i><p>New Crew</p>
-                                            <span><h1>150</h1><span>
+                                            <div class="d-flex align-items-center">
+                                                <i class="fas fa-fw fa-user fa-1x mr-2"></i>
+                                                <h5 class="mb-0">Embarkations</h5>
+                                            </div>
+                                            <h1 class="d-block text-center" style="font-size: 6rem; margin-top: 10px; font-weight: bold;">{{ $totalCrewCount }}</h1>
                                         </div>
                                         <div class="icon">
                                             <i class="ion ion-bag"></i>
                                         </div>
-                                        <a href="#" class="small-box-footer">More info <i
-                                                class="fas fa-arrow-circle-right"></i></a>
-                                    </div>
+                                        <a href="{{ route('embarkation')}}" class="small-box-footer bg-danger">Embarkations  <i class="fas fa-arrow-circle-right"></i></a>
+                                    </div> 
                                 </div>
-                                
+                               
 
                               
                            

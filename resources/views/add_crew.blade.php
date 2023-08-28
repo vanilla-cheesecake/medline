@@ -14,15 +14,46 @@
         </div>
     </div><!-- /.container-fluid -->
 </section>
-@if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
+
+@if(session('success'))
+    <style>
+        /* Customize the SweetAlert2 success alert color */
+        .swal2-icon.swal2-success {
+            color: #dc3545; /* Change to your desired danger color */
+        }
+        /* Define a custom CSS class to make the alert smaller */
+        .custom-swal {
+            width: 200px; /* Adjust the width as needed */
+        }
+    </style>
+    
+    <script>
+        Swal.fire({
+            title: 'CREW ADDED!',
+            icon: 'success',
+            position: 'top-end', // Position at the top-right corner
+            showConfirmButton: false, // Hide the "OK" button
+            timer: 2000, // Auto-close after 3 seconds
+    
+        });
+    </script>
 @endif
+
+
+
+
+@if ($errors->any())
+    <script>
+        Swal.fire({
+            title: 'Please Complete Crew Details!',
+            html: '<ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul>',
+            icon: 'error',
+            confirmButtonText: 'OK',
+            confirmButtonClass: 'btn btn-danger' // Apply AdminLTE button styling
+        });
+    </script>
+@endif
+
 
 <section class="content">
     <div class="container-fluid">

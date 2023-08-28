@@ -37,26 +37,28 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($crewMembers as $crewMember)
-                                            <tr>
-                                                <td>{{ $crewMember->rank }}</td>
-                                                <td>{{ $crewMember->lastname }} {{ $crewMember->firstname }}</td>
-                                                <td class="align-middle">
-                                                    <div class="d-flex justify-content-center">
-                                                        <!-- Add view, edit, and delete icons with appropriate links -->
-                                                        <a class="mr-4 text-danger" href=""><i class="fas fa-eye"></i></a>
-                                                        <a class="mr-4 text-danger" href=""><i class="fas fa-edit"></i></a>
-                                                        <a class="text-danger"  href="" onclick="return confirm('Are you sure you want to delete this crew member?')"><i class="fas fa-trash"></i></a>
-                                                    </div>
-                                                </td>
-                                                
-                                                <!-- Add other columns here -->
-                                            </tr>
+                                        <tr>
+                                            <td>{{ $crewMember->rank }}</td>
+                                            <td>{{ $crewMember->lastname }} {{ $crewMember->firstname }}</td>
+                                            <td class="align-middle">
+                                                <div class="d-flex justify-content-center">
+                                                    <!-- Add view, edit, and delete icons with appropriate links -->
+                                                    <a class="mr-4 text-danger" href=""><i class="fas fa-eye"></i></a>
+                                                    <a class="mr-4 text-danger" href=""><i class="fas fa-edit"></i></a>
+                                                    <a class="text-danger" href=""
+                                                        onclick="return confirm('Are you sure you want to delete this crew member?')"><i
+                                                            class="fas fa-trash"></i></a>
+                                                </div>
+                                            </td>
+
+                                            <!-- Add other columns here -->
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-                                
+
                                 <script>
-                                    $(document).ready(function () {
+                                    $(document).ready(function() {
                                         $('#crewTable').DataTable({
                                             // Enable search and sorting
                                             searching: true,
@@ -64,7 +66,7 @@
                                         });
                                     });
                                 </script>
-                                
+
                             </div>
 
                         </div>

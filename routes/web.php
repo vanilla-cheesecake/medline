@@ -54,4 +54,6 @@ Route::middleware(['auth'])->group(function () {
     // Route::get('/add-crew', [AddCrewController::class, 'create'])->name('crew.create');
     Route::POST('/add-crew', [AddCrewController::class, 'store'])->name('crew.store')->middleware('web');
 
+    // EDIT CREW ROUTE
+    Route::GET('/crew-list/edit-crew', [EditCrewController::class, 'edit'])->name('edit-crew');
 });

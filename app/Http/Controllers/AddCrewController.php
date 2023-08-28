@@ -22,7 +22,7 @@ class AddCrewController extends Controller
         // CHANGE THE DATA VALIDATION TO NULLABLE OR REQUIRED ANYTIME
         $validatedData = $request->validate([
             'profile_photo' => 'nullable|image|max:2048',
-            'firstname' => 'nullable|string|max:255',
+            'firstname' => 'required|string|max:255',
             'lastname' => 'nullable|string|max:255',
             'address' => 'nullable|string',
             'birthdate' => 'nullable|date',
